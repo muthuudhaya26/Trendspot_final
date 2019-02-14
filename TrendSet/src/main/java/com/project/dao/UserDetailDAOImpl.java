@@ -12,7 +12,7 @@ import com.project.model.UserDetail;
 public class UserDetailDAOImpl implements UserDetailDAO {
     @Autowired
     SessionFactory sessionFactory;
-	@Override
+
 	public boolean registerUser(UserDetail user) {
 		try 
 		{
@@ -25,7 +25,7 @@ public class UserDetailDAOImpl implements UserDetailDAO {
 		}
 	}
 
-	@Override
+
 	public boolean updateAddress(UserDetail user) {
 		try 
 		{
@@ -38,7 +38,7 @@ public class UserDetailDAOImpl implements UserDetailDAO {
 		}
 	}
 
-	@Override
+
 	public UserDetail getUser(String username) {
 		Session session = sessionFactory.openSession();
 		UserDetail user = session.get(UserDetail.class,username);
