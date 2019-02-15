@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,13 +17,24 @@ public class Invoice
 	@GeneratedValue
 	int orderId;
 	
-	int cartId;
+
 	String username;
 	Date orderDate;
 	int TotalAmount;
 	String ShippingAddress;
 	String paymentType;
+	@ManyToOne
+    @JoinColumn(name = "cartId")
+	Cart c;
 	
+	public Cart getC() {
+		return c;
+	}
+
+	public void setC(Cart c) {
+		this.c = c;
+	}
+
 	public int getOrderId() 
 	{
 		return orderId;
@@ -32,15 +45,7 @@ public class Invoice
 		this.orderId = orderId;
 	}
 	
-	public int getCartId() 
-	{
-		return cartId;
-	}
 	
-	public void setCartId(int cartId) 
-	{
-		this.cartId = cartId;
-	}
 	
 	public String getUsername() 
 	{
